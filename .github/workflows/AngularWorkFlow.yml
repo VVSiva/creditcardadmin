@@ -1,0 +1,24 @@
+name : Build angular app
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/serup-node@v4
+
+    - name: Install dependency
+      run: npm install
+
+    - name: Run Build
+      run : npm run Build
+    
